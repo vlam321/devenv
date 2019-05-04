@@ -104,4 +104,13 @@ if [[ $fzf_resp == 1 ]]; then
   echo 'alias ff="fzf"' >> ~/.zshrc
 fi
 
+# install vscode
+user_input "vscode" vscode_resp
+if [[ $vscode_resp == 1 ]]; then
+    sudo apt install software-properties-common apt-transport-https wget
+    wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+    sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    sudo apt install code
+fi
+
 echo "All done here. Don't forget to sauce dat .zshrc!"
